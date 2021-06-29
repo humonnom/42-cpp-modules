@@ -55,6 +55,10 @@
         "typeinfo": "cpp",
         "unordered_map": "cpp",
         "utility": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "__config": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "streambuf": "cpp"
     }
 }
