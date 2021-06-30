@@ -1,5 +1,4 @@
 #include "Contact.hpp"
-#include <iomanip>
 
 std::string Contact::keys[ELEMENT_NUM] = {
 	"first name", 

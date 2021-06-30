@@ -2,6 +2,7 @@
 #define CONTACT_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 #define ELEMENT_NUM 11
