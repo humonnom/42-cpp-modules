@@ -62,6 +62,7 @@
         "streambuf": "cpp",
         "numeric": "cpp",
         "random": "cpp",
-        "__cxx_version": "cpp"
+        "__cxx_version": "cpp",
+        "iomanip": "cpp"
     }
 }
