@@ -1,4 +1,5 @@
-#include "mypb.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 PhoneBook::PhoneBook(void){
 	_contact_num = 0;
@@ -9,7 +10,7 @@ void PhoneBook::add(void){
 		std::cout << "`no space in your phone book`" << std::endl;
 	else
 	{
-		_contact[_contact_num].setVals(_contact_num);
+		_contact[_contact_num].setVals();
 		_contact_num++;
 		std::cout << "`contact is added!`" << std::endl;
 	}
@@ -17,30 +18,28 @@ void PhoneBook::add(void){
 
 void PhoneBook::search(void){
 	printIdList();
+	int flag = 0;
 	std::string keyword;
 	std::cout << "Keyword: ";
 	std::getline(std::cin, keyword);
 	for (int i = 0; i < MAX_CONTACT_NUM; i++)
 	{
 		if (_contact[i].hasKeyword(keyword))
-			_contact[i].printAll();
+		{
+			_contact[i].printSeletedContact();
+			flag = 1;
+		}
 	}
-	std::cout << "`There's no contact with that keyword`" << std::endl;
+	if (!flag)
+		std::cout << "`There's no contact with that keyword`" << std::endl;
 };
 
 void PhoneBook::printIdList(void) {
 	if (_contact_num == 0)
-		std::cout << "`Your Phonebook is empty...`" << std::endl;
+		std::cout << "`Your Phonebook is empty... [ADD] first`" << std::endl;
 	else {
-		std::cout << "+----+-------------+" << std::endl;
-		std::cout << "[ID]" << "\t" <<  " NAME" << std::endl;
+		Contact::printHeaderKeys();
 		for (int i = 0; i < _contact_num; i++)
-		{
-			std::cout << "+----+-------------+" << std::endl;
-			std::cout << "[" << i << "]" << "\t";
-			_contact[i].printName();
-			std::cout << std::endl;
-		}
-		std::cout << "+----+-------------+" << std::endl;
+			_contact[i].printHeader(i);
 	}
 };

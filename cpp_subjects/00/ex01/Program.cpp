@@ -1,8 +1,10 @@
-#include "mypb.hpp"
+#include "Program.hpp"
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 int Program::programLoop(void){
 	while (_buffer != "EXIT"){
-		printAllCommand();
+		printSeletedContactCommand();
 		std::cout << "-> ";
 		std::getline(std::cin, _buffer);
 		if (_buffer == "ADD")
@@ -15,13 +17,6 @@ int Program::programLoop(void){
 	return (0);
 };
 
-void Program::printAllCommand(void){
+void Program::printSeletedContactCommand(void){
 	std::cout << "command list: [ ADD, SEARCH, EXIT ]" << std::endl;
 };
-
-int
-	main(void)
-{
-	Program program;
-	return (program.programLoop());
-}

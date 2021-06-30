@@ -4,12 +4,11 @@
 # include <iostream>
 
 class Pony{
-	std::string _name;
+	std::string name;
 
 	public:
-	Pony(std::string name = "Pony") : _name(name){
-		std::cout << "▻ Ƿ ◌ Ň y\n" << _name << " is created" << std::endl;
-	};
+	Pony();
+	Pony(std::string name_input);
 	~Pony();
 	void sniff();
 	void takeANap();

@@ -1,17 +1,25 @@
 #include "Pony.hpp"
 
+Pony::Pony(){
+	name = "Pony";
+};
+
+Pony::Pony(std::string name_input){
+	name  = name_input;		
+};
+
 Pony::~Pony(){
-	std::cout << _name << " is deleted " << std::endl;
+	std::cout << name << " is deleted " << std::endl;
 };
 
 void Pony::sniff(){
-	std::cout << _name << ": `Sniff, sniff…`" << std::endl;
+	std::cout << name << ": `Sniff, sniff…`" << std::endl;
 };
 
 void Pony::takeANap(){
-	std::cout << _name << " is taking a nap" << std::endl;
+	std::cout << name << " is taking a nap" << std::endl;
 };
 
 void Pony::run(){
-	std::cout << _name << " is running" << std::endl;
+	std::cout << name << " is running" << std::endl;
 };

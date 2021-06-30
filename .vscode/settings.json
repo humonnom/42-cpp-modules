@@ -59,6 +59,9 @@
         "__config": "cpp",
         "ios": "cpp",
         "istream": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "__cxx_version": "cpp"
     }
 }

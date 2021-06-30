@@ -1,7 +1,7 @@
 #include "Pony.hpp"
 
 void ponyOnTheHeap(){
-	Pony *pony = new Pony("Rainbow Dash");
+	Pony *pony = new Pony("Rainbow Dash[heap]");
 	pony->sniff();
 	pony->run();
 	pony->takeANap();
@@ -9,7 +9,7 @@ void ponyOnTheHeap(){
 };
 
 void ponyOnTheStack(){
-	Pony pony("Tea Love");
+	Pony pony("Tea Love[stack]");
 	pony.sniff();
 	pony.run();
 	pony.takeANap();

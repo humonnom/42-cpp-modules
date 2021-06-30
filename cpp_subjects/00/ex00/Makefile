@@ -1,6 +1,6 @@
 NAME			= megaphone
 
-CC			= clang++
+CC				= clang++
 
 FLAGS			= -Wall -Wextra -Werror 
 
@@ -11,17 +11,17 @@ OBJS			= $(SRCS:.cpp=.o)
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-			@$(CC) $(FLAGS) -I. -o $(NAME) $(OBJS) 2> /dev/null || true
+				@$(CC) $(FLAGS) -I. -o $(NAME) $(OBJS) 2> /dev/null || true
 
 ./%.o:			./%.cpp
-			@$(CC) $(FLAGS) -o $@ -c $< 2> /dev/null || true
+				@$(CC) $(FLAGS) -o $@ -c $< 2> /dev/null || true
 
 clean:
-			@rm -rf $(OBJS)
+				@rm -rf $(OBJS)
 
 fclean:			clean
-			@rm -rf $(NAME)
+				@rm -rf $(NAME)
 
-re:			fclean all
+re:				fclean all
 
 .PHONY:			all clean fclean re
