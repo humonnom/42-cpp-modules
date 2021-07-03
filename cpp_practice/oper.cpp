@@ -33,19 +33,21 @@ class Oper{
     };
 
     void printStr(){
-        std::cout << "????" << std::endl;
+        std::cout << "printStr" << std::endl;
         std::cout << _str << std::endl;
     };
 
     bool operator==(Oper& oper){
         if (_len != oper._len)
-            return (0);
+            return (false);
         if (_freed_len != oper._freed_len)
-            return (0);
+            return (false);
         return (!strcmp(_str, oper._str));
     };
+    
     Oper* operator-=(Oper& oper){
         Oper* new_oper = new Oper(oper);
+        this->_str = new_oper->_str;
         return (new_oper);
     };
 };
