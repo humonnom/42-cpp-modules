@@ -4,8 +4,7 @@ Pony::Pony(){
 	name = "Pony";
 };
 
-Pony::Pony(std::string name_input){
-	name  = name_input;		
+Pony::Pony(std::string name_input) : name(name_input){
 };
 
 Pony::~Pony(){

@@ -1,6 +1,6 @@
 #include <ZombieEvent.hpp>
 
-std::string ZombieEvent::name_pool[100] = {
+std::string ZombieEvent::_name_pool[Z_MAX] = {
 	"Jean-Luc Picard",
 	"William T. Riker",
 	"Data",
@@ -19,14 +19,23 @@ std::string ZombieEvent::name_pool[100] = {
 	"Ro Laren"
 };
 
-void ZombieEvent::setZombieType(){
-
+ZombieEvent::ZombieEvent(std::string const& type){
+	setZombieType(type);
 };
-	//create new zombie
-Zombie* ZombieEvent::newZombie(std::string name){
 
+void ZombieEvent::setZombieType(std::string const& type){
+	_type = type;
 };
-	//create new zombie
+
+Zombie* ZombieEvent::newZombie(std::string const& name){
+	return (new Zombie(_type, name));
+};
+
 Zombie* ZombieEvent::ramdomChump(){
-
+	std::string name;
+	std::random_device r_device;
+  	std::mt19937 r_engine(r_device());
+	std::uniform_int_distribution<int> dis(0, Z_MAX - 1);
+	name = _name_pool[dis(r_engine)];
+	return (newZombie(name));
 };
