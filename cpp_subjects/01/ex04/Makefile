@@ -1,4 +1,4 @@
-NAME			= karenFilter
+NAME			= replace
 
 CC				= clang++
 
@@ -8,7 +8,7 @@ OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					Karen.cpp \
+					Sed.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
@@ -25,7 +25,20 @@ clean:
 
 fclean:			clean
 				@rm -rf $(NAME)
+				@rm -rf *.txt.replace
 
 re:				fclean all
 
-.PHONY:			all clean fclean re
+turtle_test:	re
+				./replace turtle.txt turtle cat
+
+gummy_test:		re
+				./replace gummy_bear.txt a A
+
+do_nothing_test:re
+				./replace gummy_bear.txt turtle cat
+
+invalid_test:	re
+				./replace nothing.txt a b
+
+.PHONY:			all clean fclean re turtle_test gummy_test do_nothing_test invalid_test

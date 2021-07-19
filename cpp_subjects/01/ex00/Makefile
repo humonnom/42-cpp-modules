@@ -1,4 +1,4 @@
-NAME			= pony
+NAME			= zombie
 
 CC				= clang++
 
@@ -8,7 +8,8 @@ OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					Pony.cpp \
+					Zombie.cpp \
+					ZombieEvent.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

@@ -1,25 +1,12 @@
-#include "Zombie.hpp"
-#include "ZombieEvent.hpp"
+#include <iostream>
+#include <string>
 
-int main()
-{
-	Zombie*	stars[Z_MAX];
-	Zombie*	treks[Z_MAX];
+int main(){
+	std::string greeting = std::string("HI THIS IS BRAIN");
+	std::string* stringPTR = &greeting;
+	std::string& stringREF = greeting;
 
-	ZombieEvent star("star");
-	for (int i = 0; i < Z_MAX; i++){
-		stars[i] = star.ramdomChump();
-	}
-	ZombieEvent trek("trek");
-	for (int i = 0; i < Z_MAX; i++){
-		treks[i] = trek.ramdomChump();
-	}
-	//delete
-	for (int i = 0; i < Z_MAX; i++){
-		delete stars[i];
-	}
-
-	for (int i = 0; i < Z_MAX; i++){
-		delete treks[i];
-	}	
+	std::cout << "[string   ] " << greeting << std::endl;
+	std::cout << "[pointer  ] " << *stringPTR << std::endl;
+	std::cout << "[reference] " << stringREF << std::endl;
 }

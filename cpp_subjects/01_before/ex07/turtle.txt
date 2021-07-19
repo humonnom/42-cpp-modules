@@ -1,0 +1,5 @@
+turtle likes apples.
+turtle likes bananas.
+turtle likes water.
+turtle likes coffee.
+but turtle hates bad taste coffee.

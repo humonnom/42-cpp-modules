@@ -1,4 +1,4 @@
-NAME			= karenFilter
+NAME			= pony
 
 CC				= clang++
 
@@ -8,7 +8,7 @@ OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					Karen.cpp \
+					Pony.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
