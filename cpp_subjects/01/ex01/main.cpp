@@ -1,41 +1,41 @@
 #include "Zombie.hpp"
-#define CADET_NUM 1
-#define ENSIGN_NUM 1
-#define COMMANDER_NUM 1
-#define LIEUTENANT_NUM 1
-#define CAPTAIN_NUM 1
+#define CADET_NUM 0
+#define ENSIGN_NUM 0
+#define COMMANDER_NUM 0
+#define LIEUTENANT_NUM 2
+#define CAPTAIN_NUM 3
 
 int main(){
-	Zombie cadet("CADET", "CADET");
-	Zombie* cadets = cadet.zombieHorde(CADET_NUM, "Juepark");
-	Zombie ensign("ENSIGN", "ENSIGN");
-	Zombie* ensigns = ensign.zombieHorde(ENSIGN_NUM, "Sato");
-	Zombie commander("COMMANDER", "COMMANDER");
-	Zombie* commanders = commander.zombieHorde(COMMANDER_NUM, "Riker");
-	Zombie lieutenant("LIEUTENANT", "LIEUTENANT");
-	Zombie* lieutenants = lieutenant.zombieHorde(LIEUTENANT_NUM, "yar");
-	Zombie captain("CAPTAIN", "CAPTAIN");
-	Zombie* captains = captain.zombieHorde(CAPTAIN_NUM, "Janeway");
+	Zombie cadet("jlee");
+	Zombie* cadets = cadet.zombieHorde(CADET_NUM, "Cadet Juepark");
+	Zombie* ensigns = cadet.zombieHorde(ENSIGN_NUM, "Ensign Sato");
+	Zombie* commanders = cadet.zombieHorde(COMMANDER_NUM, "Commander Riker");
+	Zombie* lieutenants = cadet.zombieHorde(LIEUTENANT_NUM, "Lieutenant yar");
+	Zombie* captains = cadet.zombieHorde(CAPTAIN_NUM, "Captain Janeway");
 
-	cadet.announceAll(cadets, CADET_NUM);
-	ensign.announceAll(ensigns, ENSIGN_NUM);
-	commander.announceAll(commanders, COMMANDER_NUM);
-	lieutenant.announceAll(lieutenants, LIEUTENANT_NUM);
-	captain.announceAll(captains, CAPTAIN_NUM);
+	std::cout << "jlee attacked a lot.." << std::endl;
 
+	// announce all
 	for (int i = 0; i < CADET_NUM; i++){
-		delete &cadets[i];
+		cadets[i].announce();
 	}
 	for (int i = 0; i < ENSIGN_NUM; i++){
-		delete &ensigns[i];
+		ensigns[i].announce();
 	}
 	for (int i = 0; i < COMMANDER_NUM; i++){
-		delete &commanders[i];
+		commanders[i].announce();
 	}
 	for (int i = 0; i < LIEUTENANT_NUM; i++){
-		delete &lieutenants[i];
+		lieutenants[i].announce();
 	}
 	for (int i = 0; i < CAPTAIN_NUM; i++){
-		delete &captains[i];
+		captains[i].announce();
 	}
+	
+	//delete all
+	delete[] cadets;
+	delete[] ensigns;
+	delete[] commanders;
+	delete[] lieutenants;
+	delete[] captains;
 }

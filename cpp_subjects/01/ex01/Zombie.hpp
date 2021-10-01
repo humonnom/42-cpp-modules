@@ -5,15 +5,15 @@
 #include <string>
 
 class Zombie{
-	std::string _type;
 	std::string _name;
 
 	public:
-	Zombie(std::string const& type, std::string const& name);
+	Zombie();
+	Zombie(std::string const& name);
 	~Zombie();
+	void setName(std::string const& name);
 	void announce();
-	Zombie* zombieHorde(int n, std::string name);
-	void announceAll(Zombie* zobies, int zombie_num);
+	Zombie* zombieHorde(int N, std::string name);
 };
 
 #endif
