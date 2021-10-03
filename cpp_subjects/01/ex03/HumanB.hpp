@@ -5,15 +5,15 @@
 #include <iostream>
 #include <string>
 
-class HumanB{
-	std::string const& name;
-	Weapon const* weapon;
+class HumanB
+{
+	std::string const &name;
+	Weapon const *weapon;
 
-	public:
-	HumanB(std::string const& name_input);
-	HumanB(std::string const& name, Weapon const& weapon_input);
+public:
+	HumanB(std::string const &name_input);
 	void attack() const;
-	void setWeapon(Weapon const& weapon_input);
+	void setWeapon(Weapon const &weapon_input);
 };
 
 #endif

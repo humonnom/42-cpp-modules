@@ -6,13 +6,14 @@
 #include <fstream>
 #include <sstream>
 
-class Sed{
-	private:
-	static std::string edit_line(std::string const& line, std::string const& s1, std::string const& s2);
+class Sed
+{
+private:
+	static std::string edit_line(std::string const &line, std::string const &s1, std::string const &s2);
 
-	public:
+public:
 	Sed();
-	static void replace(std::string const& filename, std::string const& s1, std::string const& s2);
+	static void replace(std::string const &filename, std::string const &s1, std::string const &s2);
 };
 
 #endif

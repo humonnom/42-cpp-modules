@@ -8,7 +8,7 @@ int main()
 {
 	{
 		Weapon club = Weapon("Phaser");
-		
+
 		HumanA janeway("Janeway", club);
 		janeway.attack();
 		club.setType("Laser");
@@ -26,7 +26,7 @@ int main()
 
 	{
 		Weapon club = Weapon("crude spiked club");
-		
+
 		HumanA bob("bob", club);
 		bob.attack();
 		club.setType("some other type of club");
@@ -44,7 +44,7 @@ int main()
 
 	{
 		Weapon club = Weapon("crude spiked club");
-		
+
 		HumanA beverly("Beverly Crusher", club);
 		beverly.attack();
 		club.setType("some other type of club");
@@ -61,16 +61,3 @@ int main()
 		deanna.attack();
 	}
 }
-
-
-
-
-
-
-
-
-
-// "Geordi La Forge",
-
-// 	"Worf",
-// 	"Q",
