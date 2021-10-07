@@ -6,15 +6,15 @@
 #include <string>
 #define Z_MAX 16
 
-
-class Zombie{
+class Zombie
+{
 	std::string _name;
 
-	public:
-	Zombie(std::string const& name);
+public:
+	Zombie(std::string const &name);
 	~Zombie();
-	Zombie* newZombie(std::string const& name);
-	void randomChump(std::string const& name);
+	Zombie *newZombie(std::string const &name);
+	void randomChump(std::string const &name);
 	void announce();
 };
 
