@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    "bitset": "cpp",
+    "algorithm": "cpp",
+    "random": "cpp",
+    "string": "cpp",
+    "typeinfo": "cpp"
+  }
+}

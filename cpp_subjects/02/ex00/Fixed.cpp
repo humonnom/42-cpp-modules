@@ -1,29 +1,20 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() {
-  std::cout << "생성자 실행" << std::endl;
-  a = 3;
-  name = new std::string("jueun");
+Fixed::Fixed() : fixedPointValue(0) { std::cout << "생성자" << std::endl; };
+
+Fixed::~Fixed() { std::cout << "소멸자" << std::endl; };
+
+Fixed::Fixed(Fixed const &other) {
+    std::cout << "복사 생성자" << std::endl;
+    *this = other;
 };
 
-Fixed::Fixed(Fixed const& fiexd) {
-  std::cout << "복사 생성자 실행" << std::endl;
+Fixed &Fixed::operator=(Fixed const &other) {
+    std::cout << "대입 연산자 오버로딩" << std::endl;
+    if (this != &other) this->fixedPointValue = other.getRawBits();
+    return (*this);
 };
 
-Fixed::~Fixed() {
-  std::cout << "소멸자 실행" << std::endl;
-  delete name;
-};
+void Fixed::setRawBits(int const raw) { fixedPointValue = raw; };
 
-void Fixed::set() {
-  a = 4;
-  *name = "turtle";
-};
-
-void Fixed::print() { std::cout << a << *name << std::endl; };
-
-Fixed& Fixed::operator=(Fixed const& fixed) {
-  std::cout << "대입 연산자 실행" << std::endl;
-  (*this) = fixed;
-  return (*this);
-};
+int Fixed::getRawBits(void) const { return fixedPointValue; };

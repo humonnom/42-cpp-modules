@@ -5,16 +5,16 @@
 #include <string>
 
 class Fixed {
-  int a;
-  std::string *name;
+    int fixedPointValue;
+    static int const NUM_OF_FRACTIONAL_BITS = 8;
 
- public:
-  Fixed();
-  Fixed(Fixed const &fiexd);
-  ~Fixed();
-  void set();
-  void print();
-  // Fixed& operator=(Fixed const& fixed);
+   public:
+    Fixed();
+    Fixed(Fixed const &fiexd);
+    ~Fixed();
+    void setRawBits(int const raw);
+    int getRawBits(void) const;
+    Fixed &operator=(Fixed const &other);
 };
 
 #endif
