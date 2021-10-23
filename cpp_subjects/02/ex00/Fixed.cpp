@@ -1,20 +1,26 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() : fixedPointValue(0) { std::cout << "생성자" << std::endl; };
+Fixed::Fixed() : fixedPointValue(0) { std::cout << "Default constructor called" << std::endl; };
 
-Fixed::~Fixed() { std::cout << "소멸자" << std::endl; };
+Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; };
 
 Fixed::Fixed(Fixed const &other) {
-    std::cout << "복사 생성자" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
     *this = other;
 };
 
 Fixed &Fixed::operator=(Fixed const &other) {
-    std::cout << "대입 연산자 오버로딩" << std::endl;
+    std::cout << "Assignation operator called" << std::endl;
     if (this != &other) this->fixedPointValue = other.getRawBits();
     return (*this);
 };
 
-void Fixed::setRawBits(int const raw) { fixedPointValue = raw; };
+void Fixed::setRawBits(int const raw) {
+    std::cout << "setRawBits member function called" << std::endl;
+    fixedPointValue = raw;
+};
 
-int Fixed::getRawBits(void) const { return fixedPointValue; };
+int Fixed::getRawBits(void) const {
+    std::cout << "getRawBits member function called" << std::endl;
+    return fixedPointValue;
+};
