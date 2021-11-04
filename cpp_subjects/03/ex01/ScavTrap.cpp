@@ -38,3 +38,13 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other) {
     }
     return *this;
 };
+
+// overriding
+void ScavTrap::attack(std::string const &target) {
+    std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+};
+
+// new function
+void ScavTrap::guardGate() {
+    std::cout << getName() << "has entered Gate keeper mode." << std::endl;
+};

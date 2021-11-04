@@ -41,19 +41,25 @@ void ClapTrap::attack(std::string const &target) {
 void ClapTrap::takeDamage(unsigned int amount) {
     if (amount >= hit_points_) {
         std::cout << "ClapTrap " << name_ << " is dead...!" << std::endl;
+        std::cout << "[" << hit_points_ << "] --> "
+                  << "[0]" << std::endl;
         hit_points_ = 0;
         return;
     }
     std::cout << "ClapTrap " << name_ << " loose its energy by " << amount << "!" << std::endl;
+    std::cout << "[" << hit_points_ << "] --> "
+              << "[" << hit_points_ - amount << "]" << std::endl;
     hit_points_ -= amount;
 };
 
 void ClapTrap::beRepaired(unsigned int amount) {
     if (amount > energy_points_) {
-        std::cout << "ClapTrap " << name_ << "'s energy recovery : FAILED" << amount << "!" << std::endl;
+        std::cout << "ClapTrap " << name_ << "'s energy recovery: FAILED! [" << amount << " is greater than energy points.]" << std::endl;
         return;
     }
     std::cout << "ClapTrap " << name_ << " recovered its energy by " << amount << "!" << std::endl;
+    std::cout << "[" << hit_points_ << "] --> "
+              << "[" << hit_points_ + amount << "]" << std::endl;
     energy_points_ -= amount;
     hit_points_ += amount;
 };
@@ -75,13 +81,17 @@ unsigned int ClapTrap::getAttackDamage() const {
 //파생클래스에서 기초클래스의 값을 수정하기 위한 set 함수 추가
 void ClapTrap::setName(std::string const &name) {
     name_ = name;
+    std::cout << "-> Name updated [" << name_ << "]" << std::endl;
 };
 void ClapTrap::setHitPoints(unsigned int hit_points) {
     hit_points_ = hit_points;
+    std::cout << "-> Hit Points updated [" << hit_points_ << "]" << std::endl;
 };
 void ClapTrap::setEnergyPoints(unsigned int energy_points) {
     energy_points_ = energy_points;
+    std::cout << "-> Energy Points updated [" << energy_points_ << "]" << std::endl;
 };
 void ClapTrap::setAttackDamage(unsigned int attack_damage) {
     attack_damage_ = attack_damage;
+    std::cout << "-> Attack Damage updated [" << attack_damage_ << "]" << std::endl;
 };
