@@ -1,4 +1,4 @@
-NAME			= fixed
+NAME			= diamondtrap
 
 CC				= clang++
 
@@ -8,7 +8,10 @@ OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					Fixed.cpp \
+					DiamondTrap.cpp \
+					ClapTrap.cpp \
+					ScavTrap.cpp \
+					FragTrap.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
