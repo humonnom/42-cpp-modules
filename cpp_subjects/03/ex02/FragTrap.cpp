@@ -6,16 +6,16 @@
 
 FragTrap::FragTrap() : ClapTrap() {
     std::cout << "생성자 동작(constructor called): F" << std::endl;
-    setHitPoints(100);
-    setEnergyPoints(100);
-    setAttackDamage(30);
+    hit_points_ = 100;
+    energy_points_ = 100;
+    attack_damage_ = 30;
 };
 
 FragTrap::FragTrap(std::string const &name) : ClapTrap(name) {
     std::cout << "생성자 동작(constructor called): F" << std::endl;
-    setHitPoints(100);
-    setEnergyPoints(100);
-    setAttackDamage(30);
+    hit_points_ = 100;
+    energy_points_ = 100;
+    attack_damage_ = 30;
 };
 
 FragTrap::FragTrap(FragTrap const &other) {
@@ -31,15 +31,15 @@ FragTrap::~FragTrap() {
 FragTrap &FragTrap::operator=(FragTrap const &other) {
     std::cout << "대입연산자 오버로드(copy assignment operator): F" << std::endl;
     if (this != &other) {
-        setName(other.getName());
-        setAttackDamage(other.getAttackDamage());
-        setHitPoints(other.getHitPoints());
-        setEnergyPoints(other.getEnergyPoints());
+        name_ = other.getName();
+        attack_damage_ = other.getAttackDamage();
+        hit_points_ = other.getHitPoints();
+        energy_points_ = other.getEnergyPoints();
     }
     return *this;
 };
 
 // new function
 void FragTrap::highFivesGuys() {
-    std::cout << getName() << " says: 'Give me five!'" << std::endl;
+    std::cout << name_ << " says: 'Give me five!'" << std::endl;
 };

@@ -5,7 +5,7 @@
 #include <string>
 
 class ClapTrap {
-   private:
+   protected:
     std::string name_;
     unsigned int hit_points_;
     unsigned int energy_points_;
@@ -22,7 +22,7 @@ class ClapTrap {
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
-    //파생클래스에서 기초클래스의 값을 받아오기 위한 set 함수 추가
+    //파생클래스에서 기초클래스의 값을 받아오기 위한 get 함수 추가
     std::string const &getName() const;
     unsigned int getHitPoints() const;
     unsigned int getEnergyPoints() const;

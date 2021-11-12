@@ -6,16 +6,16 @@
 
 ScavTrap::ScavTrap() : ClapTrap() {
     std::cout << "생성자 동작(constructor called): S" << std::endl;
-    setHitPoints(100);
-    setEnergyPoints(50);
-    setAttackDamage(20);
+    hit_points_ = 100;
+    energy_points_ = 50;
+    attack_damage_ = 20;
 };
 
 ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name) {
     std::cout << "생성자 동작(constructor called): S" << std::endl;
-    setHitPoints(100);
-    setEnergyPoints(50);
-    setAttackDamage(20);
+    hit_points_ = 100;
+    energy_points_ = 50;
+    attack_damage_ = 20;
 };
 
 ScavTrap::ScavTrap(ScavTrap const &other) {
@@ -31,20 +31,21 @@ ScavTrap::~ScavTrap() {
 ScavTrap &ScavTrap::operator=(ScavTrap const &other) {
     std::cout << "대입연산자 오버로드(copy assignment operator): S" << std::endl;
     if (this != &other) {
-        setName(other.getName());
-        setAttackDamage(other.getAttackDamage());
-        setHitPoints(other.getHitPoints());
-        setEnergyPoints(other.getEnergyPoints());
+        name_ = other.getName();
+        attack_damage_ = other.getAttackDamage();
+        hit_points_ = other.getHitPoints();
+        energy_points_ = other.getEnergyPoints();
     }
     return *this;
 };
 
 // overriding
 void ScavTrap::attack(std::string const &target) {
-    std::cout << "ScavTrap " << getName() << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << std::endl;
+    std::cout << "ScavTrap " << name_ << " attacks " << target << ", causing "
+              << attack_damage_ << " points of damage!" << std::endl;
 };
 
 // new function
 void ScavTrap::guardGate() {
-    std::cout << getName() << "has entered Gate keeper mode." << std::endl;
+    std::cout << name_ << "has entered Gate keeper mode." << std::endl;
 };
