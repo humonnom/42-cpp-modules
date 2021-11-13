@@ -1,6 +1,6 @@
 NAME			= scavtrap
 
-CC				= clang++
+CXX				= clang++
 
 FLAGS			= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
@@ -16,11 +16,11 @@ OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) $(FLAGS) -I. -o $(NAME) $(OBJS) #2> /dev/null || true
+				$(CXX) $(FLAGS) -I. -o $(NAME) $(OBJS) #2> /dev/null || true
 
 $(OBJDIR)/%.o:	./%.cpp
 				mkdir $(OBJDIR) 2> /dev/null || true
-				$(CC) $(FLAGS) -I$(INCDIR) -o $@ -c $< #2> /dev/null || true
+				$(CXX) $(FLAGS) -I$(INCDIR) -o $@ -c $< #2> /dev/null || true
 clean:
 				@rm -rf $(OBJDIR)
 
