@@ -5,7 +5,7 @@
 #include <string>
 
 class ClapTrap {
-   protected:
+   private:
     std::string name_;
     unsigned int hit_points_;
     unsigned int energy_points_;
