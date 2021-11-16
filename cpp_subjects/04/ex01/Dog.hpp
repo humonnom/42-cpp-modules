@@ -5,8 +5,12 @@
 #include <string>
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal {
+   private:
+    Brain* brain_;
+
    public:
     Dog();
     Dog(std::string type);

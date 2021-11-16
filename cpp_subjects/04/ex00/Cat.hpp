@@ -13,9 +13,9 @@ class Cat : public Animal {
   Cat(Cat const& other);
   ~Cat();
 
-  Cat& operator=(Cat const& other);
+  void makeSound() const;
 
-  void makeSound();
+  Cat& operator=(Cat const& other);
 };
 
 #endif

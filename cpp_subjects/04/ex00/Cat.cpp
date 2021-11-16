@@ -6,7 +6,6 @@
 #include "Animal.hpp"
 
 // constructor & destructor
-
 Cat::Cat() : Animal() {
   std::cout << "[ Cat class ] constructor" << std::endl;
 };
@@ -19,14 +18,14 @@ Cat::Cat(Cat const& other) : Animal() {
 };
 Cat::~Cat() { std::cout << "[ Cat class ] destructor" << std::endl; };
 
+void Cat::makeSound() const {
+  std::cout << "[ " << type_ << " ] "
+            << "Meow... Meow.." << std::endl;
+};
+
 // operator
 Cat& Cat::operator=(Cat const& other) {
   std::cout << "[ Cat class ] copy assignment overload" << std::endl;
-  if (this != &other) setType(other.getType());
+  if (this != &other) type_ = other.getType();
   return *this;
-};
-
-void Cat::makeSound() {
-  std::cout << "[ " << type_ << " ] "
-            << "Meow... Meow.." << std::endl;
 };
