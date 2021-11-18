@@ -8,5 +8,7 @@
 #include "Ice.hpp"
 
 int main() {
+    AMateria test;
+
     return 0;
 }

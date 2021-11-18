@@ -10,7 +10,7 @@
 class AMateria {
    protected:
     // getType에서 리턴할 타입변수, Ice와 Cure에서도 사용해야하므로 protected
-    std::string type;
+    std::string type_;
 
    public:
     AMateria(std::string const& type);
