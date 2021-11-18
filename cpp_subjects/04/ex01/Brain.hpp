@@ -5,17 +5,22 @@
 #include <string>
 
 class Brain {
- private:
-  std::string ideas_[100];
+   private:
+    std::string* ideas_;
 
- public:
-  Brain();
-  Brain(Brain const& other);
-  ~Brain();
+   public:
+    static std::string sentence_pool_[14];
 
-  void setIdeas();
+    Brain();
+    Brain(Brain const& other);
+    ~Brain();
 
-  Brain& operator=(Brain const& other);
+    // void setIdeas() const;
+    std::string* getIdeas() const;
+
+    Brain& operator=(Brain const& other);
+
+    std::string getRandomSentence();
 };
 
 #endif
