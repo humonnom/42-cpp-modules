@@ -9,12 +9,10 @@ OBJDIR			= ./obj
 INCDIR			= ./
 
 SRCS			=	main.cpp \
-					AMateria.cpp \
-					Ice.cpp \
-					Cure.cpp \
-					ICharacter.cpp \
-					IMateriaSource.cpp \
-
+					Animal.cpp \
+					Cat.cpp \
+					Dog.cpp \
+					Brain.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

@@ -27,6 +27,8 @@ std::string Brain::ideas_pool_[14] = {
 
 int main() {
     std::cout << "=========== create all ============" << std::endl;
+    //이제 Animal 클래스는 추상클래스이므로 아래 주석을 해제하면 컴파일이 안된다.
+    // Animal test;
     Animal* animal[NUM];
 
     for (int i = 0; i < NUM / 2; i++) {
