@@ -9,7 +9,7 @@ class Brain {
     std::string* ideas_;
 
    public:
-    static std::string sentence_pool_[14];
+    static std::string ideas_pool_[14];
 
     Brain();
     Brain(Brain const& other);

@@ -13,9 +13,11 @@ Cat::Cat() : Animal() {
 };
 Cat::Cat(std::string type) : Animal(type) {
     std::cout << "[ Cat class ] constructor" << std::endl;
+    brain_ = new Brain();
 };
 Cat::Cat(Cat const& other) : Animal() {
     std::cout << "[ Cat class ] copy constructor" << std::endl;
+    brain_ = new Brain();
     *this = other;
 };
 Cat::~Cat() {
@@ -28,12 +30,17 @@ void Cat::makeSound() const {
               << "Meow... Meow.." << std::endl;
 };
 
+Brain const& Cat::getBrain() const {
+    return *brain_;
+};
+
 // operator
 Cat& Cat::operator=(Cat const& other) {
     std::cout << "[ Cat class ] copy assignment overload" << std::endl;
     if (this != &other) {
         type_ = other.getType();
-        //brain 깊은 복사
+        delete brain_;
+        brain_ = new Brain(other.getBrain());
     };
     return *this;
 };

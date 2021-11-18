@@ -14,9 +14,11 @@ Dog::Dog() : Animal() {
 
 Dog::Dog(std::string type) : Animal(type) {
     std::cout << "[ Dog class ] constructor" << std::endl;
+    brain_ = new Brain();
 };
 Dog::Dog(Dog const& other) : Animal() {
     std::cout << "[ Dog class ] copy constructor" << std::endl;
+    brain_ = new Brain();
     *this = other;
 };
 Dog::~Dog() {
@@ -29,12 +31,17 @@ void Dog::makeSound() const {
               << "WOOF! WOOF!" << std::endl;
 };
 
+Brain const& Dog::getBrain() const {
+    return *brain_;
+};
+
 // operator
 Dog& Dog::operator=(Dog const& other) {
     std::cout << "[ Dog class ] copy assignment overload" << std::endl;
     if (this != &other) {
         type_ = other.getType();
-        //brain 깊은 복사
+        delete brain_;
+        brain_ = new Brain(other.getBrain());
     };
     return *this;
 };

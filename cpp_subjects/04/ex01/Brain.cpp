@@ -29,7 +29,6 @@ Brain::~Brain() {
 //     std::cout << "[ Brain class ] set ideas" << std::endl;
 // };
 std::string* Brain::getIdeas() const {
-    std::cout << "[ Brain class ] set ideas" << std::endl;
     return ideas_;
 };
 
@@ -50,6 +49,6 @@ std::string Brain::getRandomSentence() {
     std::random_device r_device;
     std::mt19937 r_engine(r_device());
     std::uniform_int_distribution<int> dis(0, 14 - 1);
-    sentence = sentence_pool_[dis(r_engine)];
+    sentence = ideas_pool_[dis(r_engine)];
     return (sentence);
 }
