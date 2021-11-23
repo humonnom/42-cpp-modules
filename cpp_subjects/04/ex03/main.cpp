@@ -21,8 +21,8 @@ int main() {
     Cure met2 = met1;
     // - 대입연산자 오버로드
     Cure* metPtr3 = new Cure("invalid");
-    printType(metPtr3);
-    met3 = met1;
+    // printType(metPtr3);
+    *metPtr3 = met1;
     // - clone 함수 사용
     Cure* metPtr2 = metPtr->clone();
 
