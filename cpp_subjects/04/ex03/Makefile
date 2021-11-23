@@ -10,8 +10,8 @@ INCDIR			= ./
 
 SRCS			=	main.cpp \
 					AMateria.cpp \
-					Ice.cpp \
 					Cure.cpp \
+					# Ice.cpp \
 					ICharacter.cpp \
 					IMateriaSource.cpp \
 

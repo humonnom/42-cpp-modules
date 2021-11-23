@@ -4,7 +4,8 @@
 #include <string>
 
 AMateria::AMateria(std::string const& type) {
-    std::cout << "[ AMateria class ] constructor" << std::endl;
+    std::cout << "[ AMateria class ] constructor"
+              << ": type is " << type << std::endl;
 };
 
 AMateria::AMateria(AMateria const& other) {
@@ -22,8 +23,16 @@ std::string const& AMateria::getType() const {
 };
 
 //Returns the materia type
-void AMateria::use(ICharacter& target) {
-    std::cout << "[ AMateria class ] use" << std::endl;
+// void AMateria::use(ICharacter& target) {
+//     std::cout << "[ AMateria class ] use" << std::endl;
+// };
+void AMateria::use(std::string const& name) {
+    if (type_ == "ice")
+        std::cout << "*shoots an ice bolt at *" << name << std::endl;
+    else if (type_ == "cure")
+        std::cout << "*heals " << name << "'s wounds*" << std::endl;
+    else
+        std::cout << "*warning! invalid materia!*" << std::endl;
 };
 
 // 대입연산자 오버로드

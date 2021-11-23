@@ -4,12 +4,13 @@
 #include <iostream>
 #include <string>
 
-#include "ICharacter.hpp"
+// #include "ICharacter.hpp"
 
 // abstract class
 class AMateria {
    protected:
-    // getType에서 리턴할 타입변수, Ice와 Cure에서도 사용해야하므로 protected
+    //- getType에서 리턴할 타입변수
+    //- Ice와 Cure에서도 사용해야하므로 protected
     std::string type_;
 
    public:
@@ -17,9 +18,10 @@ class AMateria {
     AMateria(AMateria const& other);
     virtual ~AMateria();
 
-    std::string const& getType() const;  //Returns the materia type
-    virtual AMateria* clone() const = 0;
-    virtual void use(ICharacter& target);
+    std::string const& getType() const;
+    virtual AMateria* clone() const = 0;  //- 순수가상함수
+    // virtual void use(ICharacter& target);  //- 이걸로 다시 만들기
+    virtual void use(std::string const& name);  //- 테스트용 임시 함수
 
     // 대입연산자 오버로드
     AMateria& operator=(AMateria const& other);
