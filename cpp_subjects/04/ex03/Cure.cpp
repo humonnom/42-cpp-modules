@@ -4,6 +4,11 @@
 #include <string>
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
+
+Cure::Cure() : AMateria("cure") {
+    std::cout << "[ Cure class ] constructor" << std::endl;
+};
 
 Cure::Cure(std::string const& type) : AMateria(type) {
     std::cout << "[ Cure class ] constructor" << std::endl;
@@ -19,11 +24,11 @@ Cure::~Cure() {
 };
 
 Cure* Cure::clone() const {
-    return new Cure("cure");
+    return new Cure(type_);
 };
 
-void Cure::use(std::string const& name) {
-    AMateria::use(name);
+void Cure::use(ICharacter& target) {
+    AMateria::use(target);
 };
 
 // 대입연산자 오버로드

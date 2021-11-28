@@ -18,10 +18,6 @@ Character::Character(Character const& other) : ICharacter() {
 };
 
 Character::~Character() {
-    for (int i = 0; i < mNum_; i++) {
-        delete mList_[i];
-    }
-    //TODO: delete[] mList; 로도 되는지 체크
     std::cout << "[ Character class ] destructor" << std::endl;
 };
 
@@ -37,36 +33,32 @@ AMateria* Character::getMList() const {
     return mList_[0];
 };
 
+void Character::printMList() const {
+    std::cout << "m_list: ";
+    for (int i = 0; i < mNum_; i++) {
+        std::cout << "[" << mList_[i]->getType() << "] ";
+    }
+    std::cout << std::endl;
+};
+
 void Character::equip(AMateria* m) {
-    std::cout << m->getType() << std::endl;
-    if (mNum_ < M_NUM) {
-        mList_[mNum_++] = m->clone();
+    if (mNum_ + 1 < M_NUM) {
+        mList_[mNum_++] = m;
     }
 };
 
 void Character::unequip(int idx) {
-    std::cout << idx << std::endl;
-    if (mNum_ != 0) {
-        delete mList_[idx];
+    if (mNum_ != 0 && idx < mNum_) {
         mNum_--;
         for (int i = idx; i < mNum_; i++) {
             mList_[i] = mList_[i + 1];
         }
     }
 };
-// mNum idx
-//   4   1   1삭제 -> idx가 0보다 클때만 수행
 
-//                 mNum   idx
-// [0][1][2][3]      4     1
-//     *
-// [0][x][2][3]      3     1
-
-// [0][2][3][x]      idx ~ mNum - 2까지 돌면서 앞으로 당김
 void Character::use(int idx, ICharacter& target) {
-    std::cout << idx << std::endl;
-    if (idx < mNum_) {
-        mList_[mNum_]->use(target.getName());
+    if (idx >= 0 && idx < mNum_) {
+        mList_[idx]->use(target);
     }
 };
 
@@ -78,7 +70,7 @@ Character& Character::operator=(Character const& other) {
         mNum_ = other.getMNum();
         AMateria* mList = other.getMList();
         for (int i = 0; i < mNum_; i++) {
-            mList_[i] = mList[i].clone();
+            mList_[i] = &mList[i];
         }
     }
     return *this;

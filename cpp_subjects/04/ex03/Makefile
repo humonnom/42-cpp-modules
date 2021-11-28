@@ -13,7 +13,7 @@ SRCS			=	main.cpp \
 					Cure.cpp \
 					Ice.cpp \
 					Character.cpp \
-					# IMateriaSource.cpp \
+					MateriaSource.cpp \
 
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))

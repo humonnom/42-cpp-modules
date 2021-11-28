@@ -27,6 +27,10 @@ class Character : public ICharacter {
     int const& getMNum() const;
     AMateria* getMList() const;
 
+    //print
+    void printMList() const;
+
+    //play
     void equip(AMateria* m);
     void unequip(int idx);
     void use(int idx, ICharacter& target);

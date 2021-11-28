@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#include "ICharacter.hpp"
+
 AMateria::AMateria(std::string const& type) : type_(type) {
     std::cout << "[ AMateria class ] constructor" << std::endl;
 };
@@ -17,19 +19,14 @@ AMateria::~AMateria() {
 };
 
 std::string const& AMateria::getType() const {
-    std::cout << "it's type is " << type_ << std::endl;
     return type_;
 };
 
-//Returns the materia type
-// void AMateria::use(ICharacter& target) {
-//     std::cout << "[ AMateria class ] use" << std::endl;
-// };
-void AMateria::use(std::string const& name) {
+void AMateria::use(ICharacter& target) {
     if (type_ == "ice")
-        std::cout << "*shoots an ice bolt at *" << name << std::endl;
+        std::cout << "*shoots an ice bolt at *" << target.getName() << std::endl;
     else if (type_ == "cure")
-        std::cout << "*heals " << name << "'s wounds*" << std::endl;
+        std::cout << "*heals " << target.getName() << "'s wounds*" << std::endl;
     else
         std::cout << "*warning! invalid materia!*" << std::endl;
 };

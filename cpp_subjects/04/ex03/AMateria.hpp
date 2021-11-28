@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-// #include "ICharacter.hpp"
+#include "ICharacter.hpp"
 
 // abstract class
 class AMateria {
@@ -20,8 +20,7 @@ class AMateria {
 
     std::string const& getType() const;
     virtual AMateria* clone() const = 0;  //- 순수가상함수
-    // virtual void use(ICharacter& target);  //- 이걸로 다시 만들기
-    virtual void use(std::string const& name);  //- 테스트용 임시 함수
+    virtual void use(ICharacter& target);
 
     // 대입연산자 오버로드
     AMateria& operator=(AMateria const& other);
