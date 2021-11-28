@@ -11,9 +11,9 @@ INCDIR			= ./
 SRCS			=	main.cpp \
 					AMateria.cpp \
 					Cure.cpp \
-					# Ice.cpp \
-					ICharacter.cpp \
-					IMateriaSource.cpp \
+					Ice.cpp \
+					Character.cpp \
+					# IMateriaSource.cpp \
 
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
