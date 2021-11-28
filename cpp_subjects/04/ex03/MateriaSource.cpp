@@ -40,7 +40,7 @@ void MateriaSource::printMateriaSourceList() const {
 
 // play
 void MateriaSource::learnMateria(AMateria* m) {
-    if (msNum_ + 1 < MS_NUM) {
+    if (msNum_ < MS_NUM) {
         msList_[msNum_] = m->clone();
         msNum_++;
     };

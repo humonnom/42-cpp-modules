@@ -42,7 +42,7 @@ void Character::printMList() const {
 };
 
 void Character::equip(AMateria* m) {
-    if (mNum_ + 1 < M_NUM) {
+    if (mNum_ < M_NUM) {
         mList_[mNum_++] = m;
     }
 };

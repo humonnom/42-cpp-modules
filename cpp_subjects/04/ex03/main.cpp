@@ -20,6 +20,8 @@ int main() {
     Cure potion("cure");
     box->learnMateria(&icicle);
     box->learnMateria(&potion);
+    box->learnMateria(&icicle);
+    box->learnMateria(&potion);
     box->printMateriaSourceList();
 
     // create material
@@ -37,6 +39,8 @@ int main() {
         << "---------- play -----------" << std::endl;
     q->equip(something);      // save weapon
     q->equip(somethingNice);  // save weapon
+    q->equip(something);      // save weapon
+    q->equip(something);      // save weapon
     q->equip(something);      // save weapon
     q->printMList();          // should have three weapon
     q->unequip(2);            // should delete ice(the last one)
