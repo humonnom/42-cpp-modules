@@ -22,10 +22,8 @@ std::string const& Animal::getType() const {
     return type_;
 };
 
-// virtual function 순수가상함수
-// void Animal::makeSound() const {
-//   std::cout << "[ Animal class ] 'Unknown animal sound...'" << std::endl;
-// };
+// virtual function 순수가상함수이므로 구현에서 제외한다.
+// void Animal::makeSound() const {};
 
 // operator
 Animal& Animal::operator=(Animal const& other) {

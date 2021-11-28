@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+// 순수가상함수를 가지므로 추상클래스이다.
 class Animal {
    protected:
     std::string type_;
