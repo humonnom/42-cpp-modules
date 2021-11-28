@@ -3,9 +3,8 @@
 #include <iostream>
 #include <string>
 
-AMateria::AMateria(std::string const& type) {
-    std::cout << "[ AMateria class ] constructor"
-              << ": type is " << type << std::endl;
+AMateria::AMateria(std::string const& type) : type_(type) {
+    std::cout << "[ AMateria class ] constructor" << std::endl;
 };
 
 AMateria::AMateria(AMateria const& other) {
@@ -18,7 +17,7 @@ AMateria::~AMateria() {
 };
 
 std::string const& AMateria::getType() const {
-    std::cout << "[ AMateria class ] get type" << std::endl;
+    std::cout << "it's type is " << type_ << std::endl;
     return type_;
 };
 
