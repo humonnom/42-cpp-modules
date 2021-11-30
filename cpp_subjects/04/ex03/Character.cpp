@@ -18,6 +18,9 @@ Character::Character(Character const& other) : ICharacter() {
 };
 
 Character::~Character() {
+    for (int i = 0; i < mNum_; i++) {
+        delete mList_[i];
+    }
     std::cout << "[ Character class ] destructor" << std::endl;
 };
 
@@ -43,12 +46,13 @@ void Character::printMList() const {
 
 void Character::equip(AMateria* m) {
     if (mNum_ < M_NUM) {
-        mList_[mNum_++] = m;
+        mList_[mNum_++] = m->clone();
     }
 };
 
 void Character::unequip(int idx) {
     if (mNum_ != 0 && idx < mNum_) {
+        delete mList_[idx];
         mNum_--;
         for (int i = idx; i < mNum_; i++) {
             mList_[i] = mList_[i + 1];
@@ -67,10 +71,13 @@ Character& Character::operator=(Character const& other) {
     std::cout << "[ Character class ] copy assignment overload" << std::endl;
     if (this != &other) {
         name_ = other.getName();
+        for (int i = 0; i < mNum_; i++) {
+            delete mList_[i];
+        }
         mNum_ = other.getMNum();
         AMateria* mList = other.getMList();
         for (int i = 0; i < mNum_; i++) {
-            mList_[i] = &mList[i];
+            mList_[i] = mList[i].clone();
         }
     }
     return *this;

@@ -42,17 +42,18 @@ int main() {
     q->equip(something);      // save weapon
     q->equip(something);      // save weapon
     q->equip(something);      // save weapon
-    q->printMList();          // should have three weapon
-    q->unequip(2);            // should delete ice(the last one)
+    q->printMList();          // should have four weapons
+    q->unequip(2);            // should delete third one
     q->unequip(6);            // invalid number -> should do nothing
-    q->printMList();          // should have two weapon
+    q->printMList();          // should have three weapon
     q->use(0, *data);         // ice
     q->use(1, *data);         // cure
 
     Character *copy = new Character(*q);
-    copy->printMList();  // should have two weapon
-    q->unequip(1);       // should delete ice(the last one)
-    copy->printMList();  // should have two weapon
+    copy->printMList();  // should have three weapon
+    q->unequip(2);       // should delete ice(the last one)
+    copy->printMList();  // should have three weapon
+    q->printMList();     // should have two weapon
     copy->use(1, *q);    // should work
 
     std::cout
@@ -77,7 +78,7 @@ int main() {
     // AMateria* basePtr = new Cure("cure");
     // delete basePtr;
 
-    while (1)
-        ;
+    // while (1)
+    //     ;
     return 0;
 }

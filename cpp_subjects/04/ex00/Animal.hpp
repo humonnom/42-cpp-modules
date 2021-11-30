@@ -5,19 +5,19 @@
 #include <string>
 
 class Animal {
- protected:
-  std::string type_;
+   protected:
+    std::string type_;
 
- public:
-  Animal();
-  Animal(std::string type);
-  Animal(Animal const& other);
-  virtual ~Animal();
+   public:
+    Animal();
+    Animal(std::string type);
+    Animal(Animal const& other);
+    virtual ~Animal();
 
-  std::string const& getType() const;
-  virtual void makeSound() const;
+    std::string const& getType() const;
+    virtual void makeSound() const;
 
-  Animal& operator=(Animal const& other);
+    Animal& operator=(Animal const& other);
 };
 
 #endif
