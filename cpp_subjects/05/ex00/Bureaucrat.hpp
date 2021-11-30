@@ -26,6 +26,9 @@ class Bureaucrat {
     std::string const& getName() const;
     int const& getGrade() const;
 
+    //setter
+    void increaseGrade();
+    void decreaseGrade();
     //verify
     int verifyGrade(int grade) const;
 

@@ -24,9 +24,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const& other) : name_(other.getName()) {
 };
 
 Bureaucrat::~Bureaucrat() {
-    std::cout << "[Bureaucrat] 소멸자" << std::endl
-              << std::endl;
-    ;
+    std::cout << "[Bureaucrat] 소멸자" << std::endl;
 };
 
 //getter
@@ -38,19 +36,31 @@ int const& Bureaucrat::getGrade() const {
     return grade_;
 };
 
+//setter
+void Bureaucrat::increaseGrade() {
+    if (grade_ != HIGHEST_GRADE) {
+        grade_--;
+    }
+};
+void Bureaucrat::decreaseGrade() {
+    if (grade_ != LOWEST_GRADE) {
+        grade_++;
+    }
+};
+
 // verify
 int Bureaucrat::verifyGrade(int grade) const {
     try {
         if (grade < HIGHEST_GRADE) {
-            std::cout << "Too high" << std::endl;
+            // std::cout << "Too high" << std::endl;
             throw GradeTooHighException(grade);
         }
         if (grade > LOWEST_GRADE) {
-            std::cout << "Too low" << std::endl;
+            // std::cout << "Too low" << std::endl;
             throw GradeTooLowException(grade);
         }
     } catch (std::exception& e) {
-        std::cout << "Invalid grade" << std::endl;
+        // std::cout << "Invalid grade" << std::endl;
         throw;
     }
     return grade;
