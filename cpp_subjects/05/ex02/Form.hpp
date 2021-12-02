@@ -16,7 +16,7 @@ class Form {
     Form();
     Form(std::string const& name, int grade2sign, int grade2exec);
     Form(Form const& other);
-    ~Form();
+    virtual ~Form();
 
     //getter
     std::string getName() const;
@@ -26,6 +26,8 @@ class Form {
 
     //setter
     void beSigned(Bureaucrat const& b);
+    virtual void execute(Bureaucrat const& b) = 0;
+
     //verify
     int verifyGrade(int grade) const;
 

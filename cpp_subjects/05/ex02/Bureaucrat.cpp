@@ -50,7 +50,7 @@ void Bureaucrat::decreaseGrade() {
     }
 };
 
-//sign
+// do something
 void Bureaucrat::signForm(Form const& form) const {
     if (form.getApproved() == true) {
         std::cout << name_ << " cannot sign "
@@ -60,6 +60,18 @@ void Bureaucrat::signForm(Form const& form) const {
                   << form.getName() << std::endl;
     } else {
         std::cout << name_ << " cannot sign "
+                  << form.getName() << " because of the grade problem" << std::endl;
+    }
+};
+void Bureaucrat::executeForm(Form const& form) const {
+    if (form.getApproved() == false) {
+        std::cout << name_ << " cannot execute "
+                  << form.getName() << " because this form need to be approved first." << std::endl;
+    } else if (form.getGrade2Exec() >= grade_) {
+        std::cout << name_ << " executes "
+                  << form.getName() << std::endl;
+    } else {
+        std::cout << name_ << " cannot execute "
                   << form.getName() << " because of the grade problem" << std::endl;
     }
 };

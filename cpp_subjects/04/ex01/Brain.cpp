@@ -1,7 +1,7 @@
 #include "Brain.hpp"
 
 #include <iostream>
-#include <random>
+#include <random>  // do NOT use this HEADER for 42subject.(C++11)
 #include <string>
 
 Brain::Brain() {

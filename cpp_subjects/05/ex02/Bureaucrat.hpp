@@ -33,6 +33,7 @@ class Bureaucrat {
 
     //sign
     void signForm(Form const& form) const;
+    void executeForm(Form const& form) const;
 
     //verify
     int verifyGrade(int grade) const;
