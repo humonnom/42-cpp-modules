@@ -32,6 +32,7 @@ int main() {
             // o_brien.signForm(*form[i]);
             std::cout << *form[i] << std::endl;
             cadet.executeForm(*form[i]);
+            std::cout << "--------------------------------" << std::endl;
         }
         for (int i = 0; i < 3; i++) {
             delete form[i];

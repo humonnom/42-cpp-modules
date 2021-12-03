@@ -50,18 +50,11 @@ void Bureaucrat::decreaseGrade() {
 
 // verify
 int Bureaucrat::verifyGrade(int grade) const {
-    try {
-        if (grade < HIGHEST_GRADE) {
-            // std::cout << "Too high" << std::endl;
-            throw GradeTooHighException(grade);
-        }
-        if (grade > LOWEST_GRADE) {
-            // std::cout << "Too low" << std::endl;
-            throw GradeTooLowException(grade);
-        }
-    } catch (std::exception& e) {
-        // std::cout << "Invalid grade" << std::endl;
-        throw;
+    if (grade < HIGHEST_GRADE) {
+        throw GradeTooHighException(grade);
+    }
+    if (grade > LOWEST_GRADE) {
+        throw GradeTooLowException(grade);
     }
     return grade;
 };
@@ -82,7 +75,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 
 //operator
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
-    // std::cout << "[Bureaucrat] 대입연산자" << std::endl;
     if (this != &other) {
         grade_ = other.getGrade();
     }
@@ -90,7 +82,6 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
 };
 
 std::ostream& operator<<(std::ostream& ostream, Bureaucrat const& target) {
-    // std::cout << "[Bureaucrat] 출력스트림연산자" << std::endl;
     ostream << target.getName() << ", bureaucrat grade " << target.getGrade();
     return ostream;
 }
