@@ -10,7 +10,7 @@ class Form {
     std::string const name_;
     int const grade2sign_;
     int const grade2exec_;
-    int approved_;
+    bool approved_;
 
    public:
     Form();

@@ -22,7 +22,7 @@ class PresidentialPardonForm : public Form {
     std::string getTarget() const;
 
     //execute overload
-    virtual void execute(Bureaucrat const& b) const;
+    void execute(Bureaucrat const& b) const;
 
     //oprator
     PresidentialPardonForm& operator=(const PresidentialPardonForm& other);

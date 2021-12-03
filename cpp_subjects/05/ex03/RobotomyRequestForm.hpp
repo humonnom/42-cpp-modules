@@ -22,7 +22,7 @@ class RobotomyRequestForm : public Form {
     std::string getTarget() const;
 
     //execute overload
-    virtual void execute(Bureaucrat const& b) const;
+    void execute(Bureaucrat const& b) const;
 
     //oprator
     RobotomyRequestForm& operator=(const RobotomyRequestForm& other);

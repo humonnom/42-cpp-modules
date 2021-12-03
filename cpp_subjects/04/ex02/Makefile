@@ -4,7 +4,7 @@ CXX				= clang++
 
 FLAGS			= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 #				-Wshadow: name-hiding이 일어난 변수를 체크해주는 플래그, 
-#				-std=c++98: 89와 호환이 되는지 확인하는 플래그, cpp11을 쓴다고 해서 에러를 표시하는 것은 아니다. 
+#				-std=c++98: 98와 호환이 되는지 확인하는 플래그, cpp11을 쓴다고 해서 에러를 표시하는 것은 아니다. 
 OBJDIR			= ./obj
 INCDIR			= ./
 
