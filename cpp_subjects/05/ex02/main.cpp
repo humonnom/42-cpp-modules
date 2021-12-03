@@ -3,24 +3,57 @@
 #include <iostream>
 #include <string>
 
-#define TEST_NUM 4
-
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 int main() {
-    try {
-        std::cout << "----------- create -----------" << std::endl;
+    // Tree
+    // {
+    //     Form* form = new ShrubberyCreationForm("tree");
+    //     Bureaucrat b_sign("b_sign", 145);
+    //     Bureaucrat b_exec("b_exec", 138);  // should be high
 
-        std::cout
-            << "----------- play -----------" << std::endl;
+    //     b_sign.signForm(*form);           // success
+    //     std::cout << *form << std::endl;  // approved
+    //     b_exec.executeForm(*form);        // fail
+    //     b_exec.increaseGrade();           // b_exec's grade is 137 now
+    //     b_exec.executeForm(*form);        // success
 
-        std::cout << "----------- delete -----------" << std::endl;
+    //     delete form;
+    // }
+    // Robot
+    // {
+    //     Form* form = new RobotomyRequestForm("robot");
+    //     Bureaucrat b_sign("b_sign", 72);
+    //     Bureaucrat b_exec("b_exec", 46);  // should be high
 
-    } catch (std::exception& e) {
-        std::cerr << e.what() << std::endl;
-        return EXIT_FAILURE;
+    //     b_sign.signForm(*form);           // success
+    //     std::cout << *form << std::endl;  // approved
+    //     b_exec.executeForm(*form);        // fail
+    //     b_exec.increaseGrade();           // b_exec's grade is 137 now
+    //     b_exec.executeForm(*form);        // success
+
+    //     delete form;
+    // }
+    // Pardon
+    // {
+    //     Form* form = new PresidentialPardonForm("juepark");
+    //     Bureaucrat b_sign("b_sign", 25);
+    //     Bureaucrat b_exec("b_exec", 21);  // should be high
+
+    //     b_sign.signForm(*form);           // success
+    //     std::cout << *form << std::endl;  // approved
+    //     b_exec.executeForm(*form);        // fail
+    //     b_exec.increaseGrade();           // b_exec's grade is 137 now
+    //     b_exec.executeForm(*form);        // success
+
+    //     delete form;
+    // }
+    // undefined
+    {
+        Form* form = new RobotomyRequestForm();
+        std::cout << *form << std::endl;
+        delete form;
     }
-    return EXIT_SUCCESS;
-};
+}

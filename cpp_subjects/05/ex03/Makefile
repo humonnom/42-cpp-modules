@@ -1,4 +1,4 @@
-NAME			= form
+NAME			= intern
 
 CXX				= clang++
 
@@ -11,6 +11,10 @@ INCDIR			= ./
 SRCS			=	main.cpp \
 					Bureaucrat.cpp \
 					Form.cpp \
+					ShrubberyCreationForm.cpp \
+					RobotomyRequestForm.cpp \
+					PresidentialPardonForm.cpp \
+					Intern.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 
@@ -26,6 +30,7 @@ clean:
 				@rm -rf $(OBJDIR)
 
 fclean:			clean
+				@rm -rf *_shrubbery
 				@rm -rf $(NAME)
 
 re:				fclean all

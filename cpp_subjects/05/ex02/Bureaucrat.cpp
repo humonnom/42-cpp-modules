@@ -50,37 +50,39 @@ void Bureaucrat::decreaseGrade() {
     }
 };
 
-// do something
-void Bureaucrat::signForm(Form const& form) const {
-    if (form.getApproved() == true) {
-        std::cout << name_ << " cannot sign "
-                  << form.getName() << " because the form has already been approved." << std::endl;
-    } else if (form.getGrade2Sign() >= grade_) {
+// sign
+bool Bureaucrat::signForm(Form& form) const {
+    try {
+        form.beSigned(*this);
         std::cout << name_ << " signs "
                   << form.getName() << std::endl;
-    } else {
+    } catch (std::exception& e) {
         std::cout << name_ << " cannot sign "
-                  << form.getName() << " because of the grade problem" << std::endl;
+                  << form.getName() << " because " << e.what() << std::endl;
+        return false;
     }
+    return true;
 };
-void Bureaucrat::executeForm(Form const& form) const {
-    if (form.getApproved() == false) {
-        std::cout << name_ << " cannot execute "
-                  << form.getName() << " because this form need to be approved first." << std::endl;
-    } else if (form.getGrade2Exec() >= grade_) {
-        std::cout << name_ << " executes "
-                  << form.getName() << std::endl;
-    } else {
-        std::cout << name_ << " cannot execute "
-                  << form.getName() << " because of the grade problem" << std::endl;
+// exec
+bool Bureaucrat::executeForm(Form const& form) const {
+    try {
+        form.execute(*this);
+        std::cout
+            << name_ << " executes "
+            << form.getName() << std::endl;
+    } catch (std::exception& e) {
+        std::cerr << name_ << " cannot execute "
+                  << form.getName() << " because " << e.what() << std::endl;
+        return false;
     }
+    return true;
 };
 
 // verify
 int Bureaucrat::verifyGrade(int grade) const {
     try {
-        if (grade < HIGHEST_GRADE) throw GradeTooHighException(grade);
-        if (grade > LOWEST_GRADE) throw GradeTooLowException(grade);
+        if (grade < HIGHEST_GRADE) throw GradeTooHighException();
+        if (grade > LOWEST_GRADE) throw GradeTooLowException();
     } catch (std::exception& e) {
         throw;
     }
@@ -88,22 +90,17 @@ int Bureaucrat::verifyGrade(int grade) const {
 };
 
 //exception classes
-//high
-Bureaucrat::GradeTooHighException::GradeTooHighException(int wrongGrade) : exception(), wrongGrade_(wrongGrade){};
+Bureaucrat::GradeTooHighException::GradeTooHighException() : exception(){};
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
-    std::cout << wrongGrade_ << std::endl;
-    return "Too High Grade";
+    return "Bureaucrat: TOO HIGH GRADE";
 };
-//low
-Bureaucrat::GradeTooLowException::GradeTooLowException(int wrongGrade) : exception(), wrongGrade_(wrongGrade){};
+Bureaucrat::GradeTooLowException::GradeTooLowException() : exception(){};
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
-    std::cout << wrongGrade_ << std::endl;
-    return "Too Low Grade";
+    return "Bureaucrat: TOO LOW GRADE";
 };
 
 //operator
 Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
-    // std::cout << "[Bureaucrat] 대입연산자" << std::endl;
     if (this != &other) {
         grade_ = other.getGrade();
     }
@@ -111,7 +108,6 @@ Bureaucrat& Bureaucrat::operator=(Bureaucrat const& other) {
 };
 
 std::ostream& operator<<(std::ostream& ostream, Bureaucrat const& target) {
-    // std::cout << "[Bureaucrat] 출력스트림연산자" << std::endl;
     ostream << target.getName() << ", bureaucrat grade " << target.getGrade();
     return ostream;
 }

@@ -32,7 +32,7 @@ class Bureaucrat {
     void decreaseGrade();
 
     //sign
-    void signForm(Form const& form) const;
+    void signForm(Form& form) const;
 
     //verify
     int verifyGrade(int grade) const;

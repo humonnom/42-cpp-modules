@@ -28,20 +28,37 @@ class Form {
     void beSigned(Bureaucrat const& b);
     //verify
     int verifyGrade(int grade) const;
+    bool approvable(Bureaucrat const& b) const;
 
     //exception
+    //exception - creation
     class GradeTooHighException : public std::exception {
-        int wrongGrade_;
-
        public:
-        GradeTooHighException(int wrongGrade);
+        GradeTooHighException();
         virtual const char* what() const throw();
     };
     class GradeTooLowException : public std::exception {
-        int wrongGrade_;
-
        public:
-        GradeTooLowException(int wrongGrade);
+        GradeTooLowException();
+        virtual const char* what() const throw();
+    };
+    //exception - mismatch
+    class GradeMismatchException : public std::exception {
+       public:
+        GradeMismatchException();
+        virtual const char* what() const throw();
+    };
+
+    //exception - unapproved form
+    class UnapprovedException : public std::exception {
+       public:
+        UnapprovedException();
+        virtual const char* what() const throw();
+    };
+    //exception - already approved form
+    class AlreadyApprovedException : public std::exception {
+       public:
+        AlreadyApprovedException();
         virtual const char* what() const throw();
     };
 

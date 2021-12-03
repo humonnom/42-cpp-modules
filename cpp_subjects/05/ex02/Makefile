@@ -1,4 +1,4 @@
-NAME			= bureaucrat
+NAME			= concrete
 
 CXX				= clang++
 
@@ -11,9 +11,9 @@ INCDIR			= ./
 SRCS			=	main.cpp \
 					Bureaucrat.cpp \
 					Form.cpp \
-					PresidentialPardonForm.cpp \
-					RobotomyRequestForm.cpp \
 					ShrubberyCreationForm.cpp \
+					RobotomyRequestForm.cpp \
+					PresidentialPardonForm.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

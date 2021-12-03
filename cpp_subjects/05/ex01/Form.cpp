@@ -36,35 +36,57 @@ int Form::getGrade2Exec() const {
 
 //setter
 void Form::beSigned(Bureaucrat const& b) {
-    b.signForm(*this);
-    if (approved_ == false && b.getGrade() <= grade2sign_) {
-        approved_ = true;
-    }
+    approvable(b);
+    approved_ = true;
 };
 
 // verify
 int Form::verifyGrade(int grade) const {
     try {
-        if (grade < HIGHEST_GRADE) throw GradeTooHighException(grade);
-        if (grade > LOWEST_GRADE) throw GradeTooLowException(grade);
+        if (grade < HIGHEST_GRADE) throw GradeTooHighException();
+        if (grade > LOWEST_GRADE) throw GradeTooLowException();
     } catch (std::exception& e) {
         throw;
     }
     return grade;
 };
 
-//exception classes
-//high
-Form::GradeTooHighException::GradeTooHighException(int wrongGrade) : exception(), wrongGrade_(wrongGrade){};
-const char* Form::GradeTooHighException::what() const throw() {
-    std::cout << wrongGrade_ << std::endl;
-    return "Too High Grade";
+// signable b
+bool Form::approvable(Bureaucrat const& b) const {
+    if (approved_ == true)
+        throw AlreadyApprovedException();
+    if (b.getGrade() > grade2sign_)
+        throw GradeMismatchException();
+    return true;
 };
-//low
-Form::GradeTooLowException::GradeTooLowException(int wrongGrade) : exception(), wrongGrade_(wrongGrade){};
+
+//exception classes
+//exception - creation
+Form::GradeTooHighException::GradeTooHighException() : exception(){};
+const char* Form::GradeTooHighException::what() const throw() {
+    return "Form: TOO HIGH GRADE";
+};
+Form::GradeTooLowException::GradeTooLowException() : exception(){};
 const char* Form::GradeTooLowException::what() const throw() {
-    std::cout << wrongGrade_ << std::endl;
-    return "Too Low Grade";
+    return "Form: TOO LOW GRADE";
+};
+
+//exception - mismatch
+Form::GradeMismatchException::GradeMismatchException() : exception(){};
+const char* Form::GradeMismatchException::what() const throw() {
+    return "Form: GRADE MISMATCHED";
+};
+
+//exception - unapproved form
+Form::UnapprovedException::UnapprovedException() : exception(){};
+const char* Form::UnapprovedException::what() const throw() {
+    return "Form: UNAPPROVED FORM";
+};
+
+//exception - already approved form
+Form::AlreadyApprovedException::AlreadyApprovedException() : exception(){};
+const char* Form::AlreadyApprovedException::what() const throw() {
+    return "Form: ALREADY APPROVED";
 };
 
 //operator
