@@ -53,6 +53,11 @@ void ConvertScalar::setValue(std::string const& input) {
     }
     *(const_cast<double*>(&value_)) = value;
 };
+bool ConvertScalar::isNotDigit(char const& c) {
+    if (!std::isdigit(c) && c != '-' && c != '+')
+        return true;
+    return false;
+};
 
 //convert
 char ConvertScalar::toChar() const {
@@ -123,10 +128,3 @@ std::ostream& operator<<(std::ostream& ostream, ConvertScalar const& target) {
     target.printAsDouble(ostream);
     return ostream;
 }
-
-//static
-static bool isNotDigit(char const& c) {
-    if (!std::isdigit(c) && c != '-' && c != '+')
-        return true;
-    return false;
-};
