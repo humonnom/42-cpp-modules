@@ -76,7 +76,7 @@ double ConvertScalar::toDouble() const {
 void ConvertScalar::printAsChar(std::ostream& ostream) const {
     ostream << "char: ";
     char converted = toChar();
-    if (isnan(value_))
+    if (isnan(value_) || isinf(value_))
         ostream << "impossible" << std::endl;
     else if (!std::isprint(converted))
         ostream << "Non displayable" << std::endl;
