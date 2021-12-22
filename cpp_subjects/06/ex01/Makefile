@@ -1,4 +1,4 @@
-NAME			= convert
+NAME			= serialize
 
 CXX				= clang++
 
@@ -8,8 +8,7 @@ FLAGS			= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 OBJDIR			= ./obj
 INCDIR			= ./
 
-SRCS			=	main.cpp \
-					ConvertScalar.cpp
+SRCS			=	serialize.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

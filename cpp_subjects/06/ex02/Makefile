@@ -1,4 +1,4 @@
-NAME			= convert
+NAME			= identify
 
 CXX				= clang++
 
@@ -8,8 +8,11 @@ FLAGS			= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 OBJDIR			= ./obj
 INCDIR			= ./
 
-SRCS			=	main.cpp \
-					ConvertScalar.cpp
+SRCS			= identify.cpp \
+					A.cpp \
+					B.cpp \
+					C.cpp \
+					Base.cpp \
 
 OBJS 			= $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 

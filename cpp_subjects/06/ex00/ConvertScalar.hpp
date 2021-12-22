@@ -10,7 +10,6 @@ class ConvertScalar {
     double const value_;
     //setter
     void setValue(std::string const& input);
-    bool isNotDigit(char const& c);
 
    public:
     ConvertScalar();
@@ -22,18 +21,22 @@ class ConvertScalar {
     std::string const& getInput() const;
     double const& getValue() const;
 
-    //verify
-    std::string const& verifyInput(std::string const& input) const;
-
     //convert
     char toChar() const;
     int toInt() const;
     float toFloat() const;
     double toDouble() const;
 
+    //print
+    void printAsChar(std::ostream& ostream) const;
+    void printAsInt(std::ostream& ostream) const;
+    void printAsFloat(std::ostream& ostream) const;
+    void printAsDouble(std::ostream& ostream) const;
+
     //operator
     ConvertScalar& operator=(ConvertScalar const& other);
 };
 std::ostream& operator<<(std::ostream& ostream, ConvertScalar const& target);
-
+// static
+static bool isNotDigit(char const& c);
 #endif
