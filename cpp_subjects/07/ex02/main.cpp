@@ -2,6 +2,7 @@
 #include <iostream>
 
 #define MAX_VAL 750
+
 int main(int, char**) {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
@@ -16,13 +17,24 @@ int main(int, char**) {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
-
     for (int i = 0; i < MAX_VAL; i++) {
         if (mirror[i] != numbers[i]) {
             std::cerr << "didn't save the same value!!" << std::endl;
             return 1;
         }
+        if (i == MAX_VAL - 1)
+            std::cerr << "same value checked~!(=연산자 테스트)" << std::endl;
     }
+    Array<int> numbers_copied(numbers);
+    for (int i = 0; i < MAX_VAL; i++) {
+        if (numbers[i] != numbers_copied[i]) {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+        if (i == MAX_VAL - 1)
+            std::cerr << "same value checked~!(복사생성자 비교테스트)" << std::endl;
+    }
+    //out of limit check
     try {
         numbers[-2] = 0;
     } catch (const std::exception& e) {
@@ -37,6 +49,8 @@ int main(int, char**) {
     for (int i = 0; i < MAX_VAL; i++) {
         numbers[i] = rand();
     }
-    delete[] mirror;  //
+    delete[] mirror;
+    // while (1)
+    //     ;
     return 0;
 }

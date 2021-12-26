@@ -1,4 +1,4 @@
-NAME			= any
+NAME			= array
 
 CXX				= clang++
 
