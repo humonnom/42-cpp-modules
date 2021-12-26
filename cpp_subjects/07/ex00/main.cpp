@@ -3,7 +3,8 @@
 
 #include "whatever.hpp"
 
-my main int main() {
+// my main
+int main() {
     std::cout << "===== int =====" << std::endl;
     test(42, 0);
     std::cout << "===== float =====" << std::endl;
