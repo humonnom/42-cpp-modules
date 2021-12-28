@@ -10,9 +10,16 @@ void iter(ANY arr[], unsigned int len, void (*func)(ANY const&)) {
         (*func)(arr[i]);
     }
 }
+// for main.cpp
 template <typename ANY>
 void print(ANY const& element) {
     std::cout << "[" << element << "] ";
 }
+// for main2.cpp
+// template <typename T>
+// void print(T const& x) {
+//     std::cout << x << std::endl;
+//     return;
+// }
 
 #endif
