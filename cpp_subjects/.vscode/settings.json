@@ -69,7 +69,10 @@
     "vector": "cpp",
     "__functional_03": "cpp",
     "filesystem": "cpp",
-    "memory_resource": "cpp"
+    "memory_resource": "cpp",
+    "set": "cpp",
+    "list": "cpp",
+    "__tree": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
