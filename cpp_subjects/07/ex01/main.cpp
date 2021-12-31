@@ -24,6 +24,7 @@ int main() {
         "Lwaxana Troi",
         "Ro Laren",
     };
+    std::string empty[] = {};
     std::cout << "<< int >>" << std::endl;
     iter(nums, sizeof(nums) / sizeof(nums[0]), print);
     std::cout << std::endl;
@@ -35,6 +36,10 @@ int main() {
     std::cout << std::endl;
     std::cout << "<< string >>" << std::endl;
     iter(names, sizeof(names) / sizeof(names[0]), print);
+    std::cout << std::endl;
+
+    std::cout << "<< string(empty) >>" << std::endl;
+    iter(empty, sizeof(empty) / sizeof(empty[0]), print);
     std::cout << std::endl;
     return 0;
 }
