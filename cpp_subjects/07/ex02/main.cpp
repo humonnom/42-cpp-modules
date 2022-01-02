@@ -3,6 +3,11 @@
 
 #define MAX_VAL 750
 
+void f(const Array<int>& x) {
+    std::cout << "=====" << std::endl;
+    std::cout << x[0] << std::endl;
+}
+
 int main(int, char**) {
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
@@ -45,10 +50,11 @@ int main(int, char**) {
     } catch (const std::exception& e) {
         std::cerr << e.what() << '\n';
     }
-
     for (int i = 0; i < MAX_VAL; i++) {
         numbers[i] = rand();
     }
+    const Array<int> n(2);
+    f(n);
     delete[] mirror;
     // while (1)
     //     ;

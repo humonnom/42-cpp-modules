@@ -52,12 +52,14 @@ class Array {
     };
 
     T operator[](unsigned int i) const {
+        std::cout << "const" << std::endl;
         if (i >= limit_)
             throw OutOfLimitException();
         return (data_[i]);
     };
 
     T& operator[](unsigned int i) {
+        std::cout << "not const" << std::endl;
         if (i >= limit_)
             throw OutOfLimitException();
         return (data_[i]);
