@@ -4,12 +4,12 @@
 
 #include <string>
 #include <vector>
+#include <exception>
 
 class Span {
    private:
     unsigned int limit_;
     std::vector<int> data_;
-    std::vector<int> sorted_data_;
 
     Span(void);
 
@@ -29,11 +29,13 @@ class Span {
     // exception
     class FullStorageException : public std::exception {
        public:
-        const char* what(void) const throw();
+       FullStorageException();
+        virtual const char* what(void) const throw();
     };
     class NumbersNotEnoughException : public std::exception {
        public:
-        const char* what(void) const throw();
+       NumbersNotEnoughException();
+        virtual const char* what(void) const throw();
     };
 
     // operator
