@@ -35,6 +35,8 @@ int main() {
     mstack.push(5);
     mstack.push(737);
     mstack.push(0);
+
+    std::cout << "==== iterator test ====" << std::endl;
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
     ++it;
@@ -42,6 +44,15 @@ int main() {
     while (it != ite) {
         std::cout << *it << std::endl;
         ++it;
+    }
+    std::cout << "==== const iterator test ====" << std::endl;
+    MutantStack<int>::const_iterator cit = mstack.cbegin();
+    MutantStack<int>::const_iterator cite = mstack.cend();
+    ++cit;
+    --cit;
+    while (cit != cite) {
+        std::cout << *cit << std::endl;
+        ++cit;
     }
     std::stack<int> s(mstack);
     return 0;

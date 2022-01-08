@@ -15,7 +15,7 @@ int main() {
             sp.addNumber(17);
             sp.addNumber(9);
             sp.addNumber(11);
-            // sp.addNumber(15); // out of limits => Full storage exception
+            // sp.addNumber(15);  // out of limits => Full storage exception
             std::cout << sp.shortestSpan() << std::endl;
             std::cout << sp.longestSpan() << std::endl;
         }

@@ -1,7 +1,7 @@
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
-#include <iostream>
+// #include <iostream>
 #include <stack>
 
 template <typename T>
@@ -21,10 +21,12 @@ class MutantStack : public std::stack<T> {
     }
 
     const_iterator cbegin(void) const {
+        // std::cout << "const" << std::endl;
         return (this->c.cbegin());
     }
 
     const_iterator cend(void) const {
+        // std::cout << "const" << std::endl;
         return (this->c.cend());
     }
 
