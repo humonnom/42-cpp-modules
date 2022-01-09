@@ -2,12 +2,9 @@
 #include "span.hpp"
 
 #include <algorithm>
-#include <vector>
 #include <exception>
 #include <iostream>
-
-
-Span::Span() : limit_(0) {}
+#include <vector>
 
 Span::Span(unsigned int N) : limit_(N) {}
 
@@ -18,16 +15,16 @@ Span::Span(Span const& other) {
 Span::~Span() {}
 
 void Span::addNumber(int num) {
-        if (data_.size() == limit_)
-            throw(FullStorageException());
-        data_.push_back(num);
-        std::sort(data_.begin(), data_.end());
+    if (data_.size() == limit_)
+        throw(FullStorageException());
+    data_.push_back(num);
+    std::sort(data_.begin(), data_.end());
 }
 
 void Span::addNumber(std::vector<int>::iterator from, std::vector<int>::iterator to) {
     if (data_.size() + std::distance(from, to) > limit_)
         throw(FullStorageException());
-    
+
     data_.insert(data_.end(), from, to);
     std::sort(data_.begin(), data_.end());
 }
@@ -61,7 +58,6 @@ Span::NumbersNotEnoughException::NumbersNotEnoughException() : exception(){};
 char const* Span::NumbersNotEnoughException::what() const throw() {
     return ("Not Enough Numbers To Calc Span");
 }
-
 
 // operator
 Span& Span::operator=(Span const& other) {

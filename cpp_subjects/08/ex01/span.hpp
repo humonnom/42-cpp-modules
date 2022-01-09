@@ -2,16 +2,14 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
+#include <exception>
 #include <string>
 #include <vector>
-#include <exception>
 
 class Span {
    private:
     unsigned int limit_;
     std::vector<int> data_;
-
-    Span(void);
 
    public:
     Span(unsigned int N);
@@ -29,12 +27,12 @@ class Span {
     // exception
     class FullStorageException : public std::exception {
        public:
-       FullStorageException();
+        FullStorageException();
         virtual const char* what(void) const throw();
     };
     class NumbersNotEnoughException : public std::exception {
        public:
-       NumbersNotEnoughException();
+        NumbersNotEnoughException();
         virtual const char* what(void) const throw();
     };
 
